@@ -15,7 +15,7 @@ function Avatar({person, size}) {
 export default function Profile(){
     return(
         <>
-            <h3>Profile</h3>
+            <h3>Perfil</h3>
             <Avatar
                 size={100}
                 person={{name: 'Katsuko Saruhashi', imageId: 'YfeOqp2'}}

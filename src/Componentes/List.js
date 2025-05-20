@@ -12,7 +12,7 @@ export default function List() {
             <p>
                 <b>{person.name}:</b>
                 {' '+person.profession+' '}
-                known for {person.accomplishment}
+                conhecido como: {person.accomplishment}
             </p>
         </li>
     });

@@ -13,11 +13,11 @@ function Item({ name, isPacked}) {
 export default function PackingList(){
     return(
         <section>
-            <h2>Sally Rede's Packing List</h2>
+            <h2>Lista de Itens de Sally Rede</h2>
             <ul>
-                <Item isPacked={true} name="Space Suit" />
-                <Item isPacked={true} name="Helmet with a golden leaf" />
-                <Item isPacked={false} name="Photo of Tam" />
+                <Item isPacked={true} name="Traje Espacial" />
+                <Item isPacked={true} name="Capacete com folha dourada" />
+                <Item isPacked={false} name="Foto de Tam" />
             </ul>
         </section>
     )

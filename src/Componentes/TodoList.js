@@ -1,25 +1,20 @@
-const person = {
-    name: 'Gregorio Y. Zara',
-    theme: {
-        backgroundColor: 'black',
-        color: 'pink'
-    }
-};
+import { getImageUrl } from "../utils";
+import { people } from "../data";
 
-export default function TodoList(){
-    return(
-        <div style={person.theme}>
-            <h1>{person.name}'s To do's</h1>
+export default function List() {
+    const peoples = people.filter(person => person.profession);
+    const listItems = peoples.map(person => {
+        return <li key={person.id}>
             <img
-                className='avatar'
-                src="https://i.imgur.com/7vQD0fPs.jpg"
-                alt="Gregorio Y. Zara"
+                src={getImageUrl(person)}
+                alt={person.name} // Nome da pessoa
             />
-            <ul>
-                <li>Improve the videophone</li>
-                <li>Prepare aeronautics lectures</li>
-                <li>Work on the alcohol-fuelled engine</li>
-            </ul>
-        </div>
-    )
+            <p>
+                <b>{person.name}:</b>
+                {' '+person.profession+' '}
+                conhecido por {person.accomplishment}
+            </p>
+        </li>
+    });
+    return <ol>{listItems}</ol>
 }
