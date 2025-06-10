@@ -37,6 +37,9 @@ const Home = () => {
                     <li>
                         <Link to="/At04" style={{ textDecoration: 'none', color: '#3182ce', fontWeight: 'bold', fontSize: 18 }}>Semana 4</Link>
                     </li>
+                    <li>
+                        <Link to="/At05" style={{ textDecoration: 'none', color: '#3182ce', fontWeight: 'bold', fontSize: 18 }}>Semana 5</Link>
+                    </li>
                 </ul>
             </nav>
             {/* Rodapé */}
