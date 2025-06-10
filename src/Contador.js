@@ -4,14 +4,19 @@ export default function ContadorGenero() {
   const [homens, setHomens] = useState(0);
   const [mulheres, setMulheres] = useState(0);
 
-  // A lógica original permanece a mesma
   const total = homens + mulheres;
   const incrementarHomens = () => setHomens(homens + 1);
   const decrementarHomens = () => setHomens(homens > 0 ? homens - 1 : 0);
   const incrementarMulheres = () => setMulheres(mulheres + 1);
   const decrementarMulheres = () => setMulheres(mulheres > 0 ? mulheres - 1 : 0);
 
-  // --- ÍCONES SVG ---
+  // --- NOVA FUNÇÃO PARA ZERAR ---
+  const zerarContador = () => {
+    setHomens(0);
+    setMulheres(0);
+  };
+
+  // --- ÍCONES SVG (sem alterações) ---
   const IconeMasculino = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#007bff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="12" cy="5" r="3" />
@@ -33,7 +38,7 @@ export default function ContadorGenero() {
     fontFamily: 'Arial, sans-serif',
     maxWidth: '500px',
     margin: '50px auto',
-    padding: '20px',
+    padding: '20px 30px 30px 30px', // Aumentei o padding inferior
     boxShadow: '0 6px 15px rgba(0,0,0,0.1)',
     borderRadius: '12px',
     backgroundColor: '#fff',
@@ -75,8 +80,24 @@ export default function ContadorGenero() {
 
   const totalStyle = {
     marginTop: '20px',
+    paddingTop: '20px',
+    borderTop: '1px solid #eee',
     fontSize: '24px',
     fontWeight: 'bold',
+  };
+
+  // Estilo para o novo botão de zerar
+  const resetButton = {
+      marginTop: '25px',
+      padding: '10px 20px',
+      fontSize: '16px',
+      color: '#dc3545',
+      backgroundColor: 'transparent',
+      border: '2px solid #dc3545',
+      borderRadius: '8px',
+      cursor: 'pointer',
+      fontWeight: 'bold',
+      transition: 'all 0.3s ease'
   };
 
   return (
@@ -107,12 +128,29 @@ export default function ContadorGenero() {
         </div>
       </div>
 
-      <hr style={{border: 'none', borderTop: '1px solid #eee'}} />
-
       <div style={totalStyle}>
         <span>Total: </span>
         <span>{total}</span>
       </div>
+
+      {/* NOVO BOTÃO DE ZERAR */}
+      {total > 0 && (
+        <button
+          style={resetButton}
+          onClick={zerarContador}
+          // Efeito hover para o botão
+          onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = '#dc3545';
+              e.currentTarget.style.color = '#fff';
+          }}
+          onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = 'transparent';
+              e.currentTarget.style.color = '#dc3545';
+          }}
+        >
+          Zerar Contador
+        </button>
+      )}
     </div>
   );
 }
